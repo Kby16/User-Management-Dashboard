@@ -4,30 +4,36 @@ const UserList = ({ users, onEdit, onDelete }) => {
   
   
   return (
-    <div>
+    <div className="overflow-x-auto m-4" >
     {users.length > 0 ? 
-    <table border="1" style={{ width: "100%", textAlign: "left" }}>
+    <table 
+    className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg"
+    border="1" style={{ width: "100%", textAlign: "left" }}>
     <thead>
       <tr>
-        <th>ID</th>
-        <th> Name</th>
-        <th> Userame</th>
-        <th>Email</th>
-        <th>Website</th>
-        <th>Actions</th>
+        <th className="py-2 px-4 border-b text-left text-gray-600">ID</th>
+        <th className="py-2 px-4 border-b text-left text-gray-600">Name</th>
+        <th className="py-2 px-4 border-b text-left text-gray-600">Username</th>
+        <th className="py-2 px-4 border-b text-left text-gray-600">Email</th>
+        <th className="py-2 px-4 border-b text-left text-gray-600">Website</th>
+        <th className="py-2 px-4 border-b text-left text-gray-600">Actions</th>
       </tr>
     </thead>
     <tbody>
       {users.map((user) => (
         <tr key={user.id}>
-          <td>{user.id}</td>
-          <td>{user.name || "N/A"}</td>
-          <td>{user.username || "N/A"}</td>
-          <td>{user.email || "N/A"}</td>
-          <td>{user.website || "N/A"}</td>
-          <td>
-            <button onClick={() => onEdit(user)}>Edit</button>
-            <button onClick={() => onDelete(user.id)}>Delete</button>
+          <td className=" text-center">{user.id}</td>
+          <td className="m-2">{user.name || "N/A"}</td>
+          <td className="m-2">{user.username || "N/A"}</td>
+          <td className="m-2">{user.email || "N/A"}</td>
+          <td className="m-2">{user.website || "N/A"}</td>
+          <td className="py-2 px-4" >
+            <button 
+            className="bg-blue-500 text-white px-3 py-1 rounded-md shadow-sm hover:bg-green-600 mr-2"
+            onClick={() => onEdit(user)}>Edit</button>
+            <button 
+            className="bg-red-500 text-white px-3 py-1 rounded-md shadow-sm hover:bg-red-600"
+            onClick={() => onDelete(user.id)}>Delete</button>
           </td>
         </tr>
       ))}

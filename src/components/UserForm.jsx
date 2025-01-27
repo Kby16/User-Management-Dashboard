@@ -54,8 +54,11 @@ const UserForm = ({ onSubmit, onCancel, editingUser }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form 
+    className="bg-white p-6 rounded-lg shadow-md border border-gray-300 w-full max-w-md"
+    onSubmit={handleSubmit}>
       <input
+        className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="text"
         name="name"
         placeholder="Name"
@@ -64,6 +67,7 @@ const UserForm = ({ onSubmit, onCancel, editingUser }) => {
         required
       />
       <input
+        className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="text"
         name="username"
         placeholder="Userame"
@@ -72,6 +76,7 @@ const UserForm = ({ onSubmit, onCancel, editingUser }) => {
         required
       />
       <input
+        className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="email"
         name="email"
         placeholder="Email"
@@ -80,6 +85,7 @@ const UserForm = ({ onSubmit, onCancel, editingUser }) => {
         required
       />
       <input
+        className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         type="text"
         name="website"
         placeholder="Website"
@@ -87,8 +93,15 @@ const UserForm = ({ onSubmit, onCancel, editingUser }) => {
         onChange={handleChange}
         required
       />
-      <button type="submit">{editingUser ? "Update" : "Add"} User</button>
-      <button type="button" onClick={onCancel}>
+        <button 
+      className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 transition w-full"
+      type="submit">
+        {editingUser ? "Update" : "Add"} User
+        </button>
+      <button 
+        className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg shadow-md hover:bg-gray-400 transition w-full mt-2"
+        type="button" 
+        onClick={onCancel}>
         Cancel
       </button>
     </form>
