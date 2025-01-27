@@ -4,6 +4,8 @@ const UserList = ({ users, onEdit, onDelete }) => {
   
   
   return (
+    <div>
+    {users.length > 0 ? 
     <table border="1" style={{ width: "100%", textAlign: "left" }}>
     <thead>
       <tr>
@@ -31,7 +33,10 @@ const UserList = ({ users, onEdit, onDelete }) => {
       ))}
     </tbody>
   </table> 
-    
+    :
+    <h2>There is no list to show. Add to view, use Add User Button</h2>
+    }
+    </div>
   );
 };
 
