@@ -43,8 +43,10 @@ const App = () => {
       
       if (!response.ok) throw new Error("Failed to add user.");
       const data = await response.json();
-      setUsers((prev) => [...prev,data]);
+      const newUserWithId = {...data, id: Date.now()}
+      setUsers((prev) => [...prev, newUserWithId]);
       setFormVisible(false);
+      setError("")
     } catch (err) {
       setError(err.message);
     }
@@ -67,6 +69,7 @@ const App = () => {
       );
       setEditingUser(null);
       setFormVisible(false);
+      setError("")
     } catch (err) {
       setError(err.message);
     }
@@ -80,6 +83,7 @@ const App = () => {
       });
       if (!response.ok) throw new Error("Failed to delete user.");
       setUsers((prev) => prev.filter((user) => user.id !== id));
+      setError("")
     } catch (err) {
       setError(err.message);
     }

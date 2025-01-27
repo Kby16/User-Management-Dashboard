@@ -39,7 +39,6 @@ const UserForm = ({ onSubmit, onCancel, editingUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // onSubmit(editingUser?.id || null, formData);
     if (editingUser) {
       onSubmit(editingUser.id, formData); // Update user
     } else {
